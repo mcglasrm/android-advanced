@@ -16,6 +16,7 @@
 
 package com.example.android.fragmentexample;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -34,6 +35,8 @@ public class SecondActivity extends AppCompatActivity
     private Button mButton;
     private boolean isFragmentDisplayed = false;
 
+    private Button previousButton;
+
     // Saved instance state keys.
     static final String STATE_FRAGMENT = "state_of_fragment";
     static final String STATE_CHOICE = "user_choice";
@@ -45,7 +48,7 @@ public class SecondActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_second);
 
         // Get the button for opening and closing the fragment.
         mButton = findViewById(R.id.open_button);
@@ -72,6 +75,19 @@ public class SecondActivity extends AppCompatActivity
                 }
             }
         });
+
+        previousButton = findViewById(R.id.next_button);
+        previousButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            openMainActivity();
+        }
+    });
+}
+
+    public void openMainActivity(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     /**
