@@ -16,7 +16,6 @@
 
 package com.example.android.fragmentexample;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -29,13 +28,11 @@ import com.example.android.fragmentexample.SimpleFragment;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
-public class MainActivity extends AppCompatActivity
+public class SecondActivity extends AppCompatActivity
         implements SimpleFragment.OnFragmentInteractionListener {
 
     private Button mButton;
     private boolean isFragmentDisplayed = false;
-
-    private Button nextButton;
 
     // Saved instance state keys.
     static final String STATE_FRAGMENT = "state_of_fragment";
@@ -75,19 +72,6 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         });
-
-        nextButton = findViewById(R.id.next_button);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openSecondActivity();
-            }
-        });
-    }
-
-    public void openSecondActivity(){
-        Intent intent = new Intent(this, SecondActivity.class);
-        startActivity(intent);
     }
 
     /**
@@ -147,11 +131,11 @@ public class MainActivity extends AppCompatActivity
         mRadioButtonChoice = choice;
         // Show a Toast with the radio button choice.
         if (choice == 0){
-            Toast.makeText(this, "Choice is yes.",
-                    LENGTH_SHORT).show();}
+        Toast.makeText(this, "Choice is yes.",
+                LENGTH_SHORT).show();}
         else{
-            Toast.makeText(this, "Choice is no.",
-                    LENGTH_SHORT).show();
+         Toast.makeText(this, "Choice is no.",
+                 LENGTH_SHORT).show();
         }
     }
 
